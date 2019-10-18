@@ -17,3 +17,4 @@ React is a front end framework for creating UI components with javascript.
 - Create a react state variable
 - Control the input field with the state
 - When user click the button, alert the text
+- Create a mock list of notes and display
