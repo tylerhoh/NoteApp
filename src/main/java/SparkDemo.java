@@ -37,23 +37,23 @@ public class SparkDemo {
       return "This one has a block body";
     });
     get("/get", (req, res) -> {
-      RouteObject route = RouteFactory.makeRoute("/get", req.queryParams("_id"));
+      RouteObject route = new GetRoute(req.queryParams("_id"));
       return route.localRes.getJson();
     });
     post("/delete", (req, res) ->{
-      RouteObject route = RouteFactory.makeRoute("/delete", req.queryParams("_id"));
+      RouteObject route = new DeleteRoute(req.queryParams("_id"));
       return route.localRes.getJson();
     });
     get("/list", (req, res) ->{
-      RouteObject route = RouteFactory.makeRoute("/list", "null");
+      RouteObject route = new ListRoute();
       return route.localRes.getJson();
     });
     post("/store", (req, res) ->{
-      RouteObject route = RouteFactory.makeRoute("/store", req.body());
+      RouteObject route = new StoreRoute(req.body());
       return route.localRes.getJson();
     });
     post("/update", (req, res) ->{
-      RouteObject route = RouteFactory.makeRoute("/update", req.queryParams("_id"), req.body());
+      RouteObject route = new UpdateRoute(req.queryParams("_id"), req.body());
       return route.localRes.getJson();
     });
 
